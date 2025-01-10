@@ -1,31 +1,38 @@
-type One = string
-type Two = string|number
-type Three = 'hello'
+class Coder {
 
-// let a:One = 'hello'
-// let b = a as Two
-// let c = a as Three
+    secondLang!: string
 
-
-let a = <One>"world"
-
-function addOrConcat(a:number, b:number, c: 'add' | "concat"): string | number {
-    if (c === "add") {
-        return a+b
+    constructor(
+        public readonly name: string,
+        public music: string,
+        private age: number,
+        protected lang: string = 'Typescript'
+    ) {
+        this.name = name
+        this.music = music
+        this.age = age
+        this.lang = lang
     }
-    return ""+a+b
+
+    public getAge() {
+        return "I am " + this.age + " years old"
+    }
 }
 
-let myVal:string = addOrConcat(2,4,'concat') as string
-let nextVal:number = addOrConcat(2,4,'concat') as number
+const Dave = new Coder('Dave', 'Rock', 42)
 
-console.log(nextVal)
+console.log(Dave.getAge())
 
-// The DOM
+class WebDev extends Coder {
+    constructor(public computer:string, name: string, music: string, age: number){
+        super(name, music, age)
+        this.computer = computer
+    }
 
-const img = document.querySelector('img')! 
-const myImg = document.getElementById('img') as HTMLImageElement
-const nextImg = <HTMLImageElement>document.getElementById('img')
+    public getLang() {
+        return "I write " + this.lang
+    }
+}
 
-img.src
-myImg.src
+const dev = new WebDev ('Lenovo', "Ejike", "Lucie", 30)
+console.log(dev.getLang())
