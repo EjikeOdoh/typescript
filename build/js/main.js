@@ -15,7 +15,7 @@ class Coder {
     }
 }
 const Dave = new Coder('Dave', 'Rock', 42);
-console.log(Dave.getAge());
+// console.log(Dave.getAge())
 class WebDev extends Coder {
     constructor(computer, name, music, age) {
         super(name, music, age);
@@ -27,4 +27,32 @@ class WebDev extends Coder {
     }
 }
 const dev = new WebDev('Lenovo', "Ejike", "Lucie", 30);
-console.log(dev.getLang());
+class Guitarist {
+    constructor(name, instrument) {
+        this.name = name;
+        this.instrument = instrument;
+    }
+    play(action) {
+        return this.name + " " + action + " the " + this.instrument;
+    }
+}
+const jimmy = new Guitarist("Jimmy", "Guiter");
+// console.log(jimmy.play("strums"))
+class Peeps {
+    static getCount() {
+        return Peeps.count;
+    }
+    constructor(name) {
+        this.name = name;
+        this.name = name;
+        this.id = ++Peeps.count;
+    }
+}
+Peeps.count = 0;
+const John = new Peeps("John");
+const Steve = new Peeps("Steve");
+const Amy = new Peeps("Amy");
+console.log(John.id);
+console.log(Steve.id);
+console.log(Amy.id);
+console.log(Peeps.count);
